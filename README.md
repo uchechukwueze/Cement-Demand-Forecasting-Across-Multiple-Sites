@@ -1,6 +1,7 @@
 # Cement-Demand-Forecasting-Across-Multiple-Sites
 This project seek to  address MIG currently facing challenges including stockouts, overstocking, and inefficiencies from reactive ordering. 
 
+<<<<<<< HEAD
 ### Cement Demand Forecasting Across Multiple Sites
 Project Context
 Midlands Infrastructure Group (MIG) is a Tier-1 UK civil engineering and construction company operating 25–40 active project sites nationwide. Cement plays a critical role in project delivery but is prone to supply-demand mismatches due to fluctuating pour schedules, weather variations, and manual planning practices.
@@ -129,3 +130,5 @@ Develop Plotly Dash application with interactive visualizations for forecasts, i
 Step 7: Validation and Deployment
 Validate model predictions against hold-out data. Deploy forecasting pipeline to production environment. Establish monitoring framework to track forecast accuracy and trigger model retraining when performance degrades beyond acceptable thresholds.
 
+=======
+>>>>>>> 5afbdcbbbc421f648c5b02d3535ea8e9cc049acb
