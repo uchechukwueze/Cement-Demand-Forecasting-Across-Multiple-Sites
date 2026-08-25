@@ -1,0 +1,44 @@
+/* Inventory page chart sizing */
+
+#inventory-position-chart,
+#inventory-flow-chart {
+    width: 100% !important;
+    min-width: 0;
+}
+
+/* Remove the donut-chart width restriction */
+
+#inventory-position-chart .js-plotly-plot,
+#inventory-position-chart .plot-container,
+#inventory-position-chart .svg-container,
+#inventory-flow-chart .js-plotly-plot,
+#inventory-flow-chart .plot-container,
+#inventory-flow-chart .svg-container {
+    width: 100% !important;
+    max-width: none !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* Make the supply panel fill the available space */
+
+.forecast-chart-panel.risk-panel {
+    width: 100%;
+}
+
+.forecast-chart-panel.risk-panel .js-plotly-plot {
+    max-width: none !important;
+    margin: 0 !important;
+}
+
+/* Stronger visual treatment for the supply chart */
+
+.forecast-chart-panel.risk-panel::before {
+    background:
+        linear-gradient(
+            90deg,
+            #4f8cff,
+            #33d1b4,
+            transparent
+        );
+}

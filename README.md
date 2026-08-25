@@ -1,132 +1,574 @@
-# Cement-Demand-Forecasting-Across-Multiple-Sites
-This project seek to  address MIG currently facing challenges including stockouts, overstocking, and inefficiencies from reactive ordering. 
+<div align="center">
 
-### Cement Demand Forecasting Across Multiple Sites
-Project Context
-Midlands Infrastructure Group (MIG) is a Tier-1 UK civil engineering and construction company operating 25–40 active project sites nationwide. Cement plays a critical role in project delivery but is prone to supply-demand mismatches due to fluctuating pour schedules, weather variations, and manual planning practices.
-MIG currently faces challenges including stockouts, overstocking, and inefficiencies from reactive ordering. These issues result in project delays, wastage, and increased costs. MIG leadership has requested a data-driven forecasting solution that can anticipate cement demand at each site and support proactive inventory management decisions.
+# 🏗️ MIG Cement Intelligence & Inventory Control Tower
 
-### Project Purpose
-To design and deploy a predictive forecasting model that uses historical consumption, pour schedules, weather data, and inventory records to forecast cement demand across multiple sites. The model will drive more efficient stock planning, reduce waste, and ensure project continuity without material shortages.
-Expected Deliverables
-•	A time-series forecasting model (ARIMA/ML-based) capable of predicting cement demand up to 8 weeks ahead.
-•	A Plotly Dash dashboard displaying forecasts, inventory levels, and reorder alerts by site.
-•	A data-driven inventory optimization framework to define reorder points based on forecasted demand and silo capacities.
-•	Project documentation covering methodology, model performance, and key insights.
-Target Outcomes
-•	Forecast accuracy with MAPE ≤ 15%.
-•	≥ 98% pour readiness (no stockouts at scheduled pours).
-•	20% improvement in silo utilization efficiency.
-•	30% reduction in material write-offs.
+### **Forecast demand. Protect pours. Control inventory.**
 
-### Business Challenge
-Midlands Infrastructure Group (MIG) Ltd. is a Tier-1 UK civil engineering and construction company headquartered in Birmingham, England. Founded in 1994 as a regional roadworks contractor, the company has grown strategically over three decades to become a national operator delivering complex infrastructure projects across highways, rail, energy, and utilities sectors.
-MIG's growth trajectory reflects a commitment to operational excellence and technological advancement. The 2000s marked the company's expansion into multi-site operations with regional hubs across the UK. In 2012, MIG standardized its planning and cost coding systems, successfully integrating site operations with commercial teams to enhance financial visibility and project controls. A significant milestone occurred in 2018 when the company secured framework agreements with leading cement suppliers, stabilizing material flows and pricing. The digital transformation accelerated in 2021 with the rollout of integrated weighbridge systems and electronic proof-of-delivery (e-POD) tracking tools across all operational sites.
-Today, MIG manages between 25 and 40 concurrent construction sites, serving a diverse client portfolio that includes government bodies such as the Department for Transport and National Highways, regional councils, and private developers. The company maintains a workforce of approximately 850 employees and generates annual revenues exceeding £350 million, with sustained year-over-year growth. MIG's operational capabilities span full-service civil engineering, groundworks, reinforced concrete structures, and major infrastructure delivery.
-MIG's competitive advantages are built on three core pillars. 
-First, standardized data capture across all sites ensures consistent operational intelligence. 
-Second, framework agreements with suppliers provide stable pricing and guaranteed material availability. Third, strong digital adoption—including IoT-enabled weighbridges, tablet-based site reporting, and e-POD systems—positions MIG ahead of competitors in operational visibility. Additionally, the company's commitment to sustainability through waste reduction and carbon footprint minimization has become a key differentiator in an increasingly environmentally conscious construction sector.
-Cement is mission-critical for MIG's infrastructure projects, yet demand forecasting remains highly volatile due to the complex interplay of pour schedules, weather conditions, and site-specific ground conditions. MIG currently relies on rolling 4-week construction schedules and manual estimator-driven projections, resulting in significant operational inefficiencies with direct financial consequences.
+A forecasting and inventory decision-support system for multi-site cement operations — built to move MIG from **reactive ordering** to **proactive, data-driven planning**.
 
-Problem Statement: MIG lacks a reliable, data-driven cement demand forecasting system, leading to unpredictable inventory levels, reactive ordering patterns, and inefficient resource allocation across its 25–40 active construction sites.
+<br>
 
-### Key Obstacles & Pain Points:
-Stockouts and Idle Resources: When cement is unavailable for scheduled pours, crews remain idle while equipment stands unused. This directly impacts project timelines and exposes MIG to contractual penalty clauses.
-Overstocking and Capital Tie-up: Excessive cement inventory strains silo capacity, risks material expiry (particularly for specialized grades), and ties up working capital that could be deployed elsewhere.
-Reactive Ordering Culture: Last-minute urgent deliveries command premium pricing and disrupt supplier logistics, eroding the benefits of MIG's framework agreements.
-Limited Visibility: Planning relies on disparate spreadsheets, preventing meaningful site-level optimization or consolidation of purchasing power across multiple sites.
-Business Impact: These issues collectively inflate material and logistics costs, damage client confidence through project delays, and undermine MIG's sustainability objectives by generating unnecessary waste and associated embodied carbon. Leadership recognizes that addressing these forecasting challenges is essential for maintaining competitive positioning and achieving strategic growth targets.
-Why It Matters: Without accurate demand forecasting, MIG cannot optimize its supply chain, control costs, or deliver the predictable project outcomes that clients expect. A proactive, data-driven approach is essential to transform cement logistics from a source of operational friction into a strategic advantage.
-Rational for the Project
-Concept Overview: This project aims to develop a robust demand forecasting system for cement across MIG's multi-site operations. The solution will combine historical consumption patterns, planned pour schedules, real-time inventory positions, and external weather data to generate accurate site-level forecasts. The outputs will drive automated reorder point calculations and silo utilization planning.
-Industry Relevance: Cement is inherently bulky, perishable, and critical to construction project schedules. Major contractors increasingly adopt data-driven forecasting to reduce delays, minimize waste, and mitigate supply chain risk. This project positions MIG at the forefront of this industry transformation.
-Strategic Drivers:
-•	Operational Efficiency: Guarantee "pour-ready" availability across all sites while minimizing idle time and schedule disruptions.
-•	Data-Driven Decision-Making: Replace reactive, manual ordering with proactive, evidence-based procurement strategies.
-•	Cost Optimization: Reduce material waste and capital tie-up by precisely aligning inventory levels with actual demand and silo capacity.
-•	Resource Optimization: Improve crew utilization by eliminating stockout-related downtime.
-•	Continuous Improvement: Establish a feedback loop where forecast accuracy is systematically measured and improved.
-•	Sustainability: Support MIG's environmental commitments by reducing material waste and associated embodied carbon emissions.
-Strategic Outcome: A scalable forecasting solution that reduces operational risk, enhances supply chain visibility, and delivers measurable financial and environmental returns through improved inventory management across MIG's national operations.
+![Python](https://img.shields.io/badge/Python-Data%20Science-0B1F33?style=for-the-badge&logo=python&logoColor=white)
+![Plotly Dash](https://img.shields.io/badge/Plotly%20Dash-Control%20Tower-20C7B2?style=for-the-badge&logo=plotly&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-Operational%20Data-0B1F33?style=for-the-badge&logo=sqlite&logoColor=white)
+![Forecasting](https://img.shields.io/badge/Forecasting-Up%20to%208%20Weeks-20C7B2?style=for-the-badge)
+![CRISP--DM](https://img.shields.io/badge/Methodology-CRISP--DM-0B1F33?style=for-the-badge)
 
-### Proejct Objectives
-Forecast Accuracy: Achieve Mean Absolute Percentage Error (MAPE) ≤ 15% for 8-week site-level cement demand forecasts. This target ensures reliable predictions that support confident procurement and inventory decisions.
-Service Level: Achieve ≥ 98% pour readiness, meaning no stockouts occur at scheduled pours across all sites. This metric directly addresses the business impact of idle crews and project delays.
-Inventory Efficiency: Realize a 20% improvement in inventory utilization and a 30% reduction in write-offs by aligning stock levels with forecasted demand and site-specific silo capacities.
-Decision Visibility: Deploy an interactive Plotly Dash application providing operations managers with real-time access to forecasts, automated reorder alerts, and silo utilization metrics at both site and aggregate levels.
+<br>
 
-### Data & Dataset Design
-Data Requirements Overview
-The project requires integrated data from multiple operational sources to enable comprehensive forecasting and inventory simulation:
-Types of Data:
-•	Operational Data: Daily cement consumption, planned pour quantities, and site-specific silo capacities.
-•	Logistics Data: Opening inventory positions, daily deliveries received, and closing inventory balances.
-•	External Data: Local weather conditions including rainfall and temperature that impact concrete setting times and pour feasibility.
+**32,880 operational records · 30 sites · 3 cement types · 8-week planning horizon**
 
-### Data Sources:
-•	Site-level weighbridge systems (consumption and delivery data).
-•	Project management systems (planned pour schedules).
-•	Inventory management spreadsheets (stock positions).
-•	External weather APIs (daily precipitation and temperature).
-•	Supplier delivery logs (real-time shipment tracking).
+</div>
 
-### Core Tables (Data Dictionary)
-Table: Cement_Demand
-Description: Daily site-level cement consumption, inventory, and environmental data.
-Primary Key: (date, site_id, cement_type)
-Foreign Keys: None explicitly provided
- 
- 
-Column Name	Data Type	Description
-date	DATE	Daily timestamp for the record
-site_id	VARCHAR	Unique identifier for each construction site
-cement_type	VARCHAR	Cement grade (e.g., CEM_I, CEM_II)
-consumed_tonnes	FLOAT	Actual daily cement consumption in tonnes
-planned_pour_tonnes	FLOAT	Scheduled pour quantities in tonnes
-opening_inventory_tonnes	FLOAT	Start-of-day inventory position in tonnes
-deliveries_tonnes	FLOAT	Cement deliveries received in tonnes
-closing_inventory_tonnes	FLOAT	End-of-day inventory position in tonnes
-rain_mm	FLOAT	Daily rainfall in millimeters
-avg_temp_c	FLOAT	Average daily temperature in Celsius
-silo_capacity	FLOAT	Maximum site silo storage in tonnes
+---
 
-### Data Model
+## Executive Summary
 
-### Entity Relationships:
-The Cement_Demand table serves as the central fact table, linking operational consumption, logistics, and environmental data at the site-day-cement_type grain.
-Table Relationships:
-•	One-to-many relationship between site_id and daily records (each site has multiple daily observations).
-•	One-to-many relationship between cement_type and daily consumption records.
-•	Inventory balance integrity: closing_inventory = opening_inventory + deliveries - consumed.
-Data Integrity Considerations:
-•	Primary key uniqueness ensures no duplicate site-day-type records.
-•	Referential integrity checks prevent orphaned inventory records.
-•	Balance validation rules detect data entry errors and system integration issues.
-•	Historical data must maintain consistent schema across time periods.
- 
-### Dataset Download Link
-Technological Stack
-Layer	Tool / Technology	Purpose
-Database	SQLite	Lightweight, versionable data storage for historical and simulation data
-Data Processing	Python (pandas, numpy)	Data ingestion, cleaning, transformation, and feature engineering
-Machine Learning	scikit-learn, statsmodels	Time-series modeling, forecasting with external regressors, and model evaluation
-Visualization & App	Plotly, Dash	Multi-page dashboards for forecasts, inventory projections, and reorder alerts
-Version Control	Git	Source code management, collaboration, and project versioning
- 
-### Data Science Scope
-Step 1: Data Ingestion and Cleaning
-Import site data from SQLite into Python pandas environment. Validate schema consistency, handle missing values, fix negative inventory or consumption entries, and ensure inventory flow balance equations hold across all records.
-Step 2: Exploratory Data Analysis
-Analyze demand patterns by site, cement type, and time periods. Identify seasonality, trends, and correlation with weather variables. Quantify impact of planned pours on actual consumption and detect outliers or data quality issues.
-Step 3: Feature Engineering
-Create lag features, rolling aggregates, and interaction variables. Engineer weather-adjusted pour indicators and calculate inventory turnover metrics to capture site-specific operational characteristics for modeling.
-Step 4: Model Development
-Baseline model using SARIMAX with external regressors. Compare against machine learning approaches including Random Forest with exogenous variables. Evaluate and select best-performing model using MAPE and RMSE metrics.
-Step 5: Inventory Simulation
-Forecast silo levels using predicted demand, scheduled deliveries, and opening inventory positions. Define dynamic reorder points for each site based on forecasted demand, lead times, and silo capacity constraints.
-Step 6: Dashboard Application
-Develop Plotly Dash application with interactive visualizations for forecasts, inventory projections, and reorder alerts. Enable site-level drill-down and aggregate views for operations management.
-Step 7: Validation and Deployment
-Validate model predictions against hold-out data. Deploy forecasting pipeline to production environment. Establish monitoring framework to track forecast accuracy and trigger model retraining when performance degrades beyond acceptable thresholds.
+Midlands Infrastructure Group (MIG) operates multiple construction sites where cement availability is mission-critical. The operational challenge is not simply forecasting how much cement will be used. MIG must know **what each site is likely to consume, whether inventory will remain sufficient, where stockout risk is emerging, and when a reorder should be triggered**.
 
-git add README.md
+This project therefore connects four layers of decision intelligence:
+
+1. **Demand Forecasting** — estimate future cement consumption at site level.
+2. **Inventory Projection** — translate forecast demand into future stock positions.
+3. **Risk & Reorder Engine** — identify stockout / overstock exposure and recommend action.
+4. **Plotly Dash Control Tower** — give operations managers one interactive view of forecasts, inventory, risk and scenarios.
+
+> **The forecast is not the final product. The decision is.**
+
+---
+
+## The Business Problem
+
+MIG's cement planning process is exposed to four recurring operational risks:
+
+| Business pain point | Operational consequence |
+|---|---|
+| **Stockouts** | Scheduled pours can be delayed while labour and equipment remain idle. |
+| **Overstocking** | Excess stock occupies silo capacity, ties up working capital and increases waste exposure. |
+| **Reactive ordering** | Urgent deliveries can increase logistics cost and reduce procurement efficiency. |
+| **Limited visibility** | Site-level planning becomes fragmented, making cross-site prioritisation difficult. |
+
+The central question is:
+
+> **How can MIG predict future cement demand early enough to make better inventory, procurement and pour-readiness decisions?**
+
+---
+
+## Business Targets
+
+These are the **project targets**, not automatically claimed as achieved outcomes.
+
+| Objective | Target |
+|---|---:|
+| Forecast accuracy | **MAPE ≤ 15%** |
+| Forecast horizon | **Up to 8 weeks** |
+| Pour readiness | **≥ 98%** |
+| Inventory utilisation improvement | **20%** |
+| Material write-off reduction | **30%** |
+| Decision visibility | Interactive forecast, inventory, risk and reorder dashboard |
+
+---
+
+## Why This Project Goes Beyond Forecasting
+
+| A forecasting notebook | MIG Control Tower |
+|---|---|
+| Predicts demand | Predicts demand **and translates it into action** |
+| Stops at model metrics | Connects forecasts to inventory exposure |
+| Produces static outputs | Provides interactive site-level decision support |
+| Tells users what may happen | Helps users decide **what to do next** |
+| Uses one assumed future | Adds a **scenario simulator** for operational what-if analysis |
+
+---
+
+## End-to-End Architecture
+
+```mermaid
+flowchart LR
+    A[SQLite Operational Data] --> B[Data Validation & Cleaning]
+    B --> C[EDA & Business Understanding]
+    C --> D[Feature Engineering]
+    D --> E[Demand Forecasting Engine]
+    E --> F[Inventory Projection Engine]
+    F --> G[Risk Detection Engine]
+    G --> H[Reorder Recommendation Engine]
+    H --> I[Plotly Dash Control Tower]
+    I --> J[Scenario Simulator]
+```
+
+The analytical sequence is deliberately separated:
+
+**Historical operations → demand forecast → inventory projection → stockout / overstock assessment → reorder decision → management action**
+
+This avoids mixing the forecasting problem with the inventory decision problem.
+
+---
+
+## CRISP-DM Methodology
+
+The project follows the **CRISP-DM** framework so that the modelling remains tied to a real operational decision.
+
+| CRISP-DM stage | MIG implementation |
+|---|---|
+| **Business Understanding** | Define stockout, overstock, pour-readiness and procurement objectives. |
+| **Data Understanding** | Inspect the SQLite tables, grain, variables, demand behaviour and inventory relationships. |
+| **Data Preparation** | Validate references, clean operational records and create forecast-ready features. |
+| **Modelling** | Compare forecasting approaches using historical demand and operational predictors. |
+| **Evaluation** | Use hold-out / time-aware validation and business-relevant forecast error measures. |
+| **Deployment** | Convert forecasts into inventory, risk and reorder intelligence in Plotly Dash. |
+
+---
+
+## Dataset
+
+The operational dataset contains **32,880 rows and 11 core variables** at approximately the **date × site × cement-type** grain.
+
+### Core Tables
+
+- `Operations`
+- `Sites`
+- `CementTypes`
+
+### Core Variables
+
+| Variable | Role |
+|---|---|
+| `date` | Time index |
+| `site_id` | Site identifier |
+| `cement_type` | Cement grade / product |
+| `planned_pour_tonnes` | Planned construction demand |
+| `consumed_tonnes` | **Primary forecasting target** |
+| `opening_inventory_tonnes` | Beginning stock position |
+| `deliveries_tonnes` | Inventory inflow |
+| `closing_inventory_tonnes` | Ending stock position |
+| `rain_mm` | Weather signal |
+| `avg_temp_c` | Weather signal |
+| `silo_capacity` | Physical storage constraint |
+
+### Inventory Integrity Rule
+
+A core validation relationship is:
+
+```text
+Closing Inventory = Opening Inventory + Deliveries - Consumption
+```
+
+This is used as both a **business rule** and a **data-quality check**.
+
+---
+
+## Forecast-Time Discipline: Preventing Target Leakage
+
+One of the most important modelling choices in the project is deciding **what information would genuinely be available when the forecast is made**.
+
+For example:
+
+```text
+Consumption = Opening Inventory + Deliveries - Closing Inventory
+```
+
+Using the same day's `closing_inventory_tonnes` to predict the same day's `consumed_tonnes` would reveal part of the answer to the model.
+
+That could produce impressive-looking accuracy without genuine forecasting ability.
+
+### Potentially known in advance
+
+- forecast date
+- site
+- cement type
+- planned construction schedule
+- silo capacity
+- scheduled deliveries, where genuinely known
+
+### Historical information
+
+- previous consumption
+- previous inventory
+- previous deliveries
+- historical weather
+
+### Not treated as automatically known future information
+
+- actual future consumption
+- actual future closing inventory
+- unscheduled future deliveries
+- actual future rainfall unless a forecast source is explicitly available
+
+---
+
+# Exploratory Data Analysis
+
+EDA was used to answer operational questions — not simply to produce charts.
+
+## 1. Demand Is Uneven and Right-Skewed
+
+Average cement consumption is approximately **23.7 tonnes per operational record**. The distribution is right-skewed: some records show zero consumption while high-demand observations exceed **69 tonnes**.
+
+<p align="center">
+  <img src="assets/eda/01_demand_distribution.png" width="760" alt="Distribution of daily cement consumption">
+</p>
+
+### Business meaning
+
+MIG should not treat demand as a stable average. The distribution contains both inactive / low-demand periods and high-demand operating periods, which makes site-level forecasting and inventory buffers important.
+
+---
+
+## 2. Site Behaviour Is Not Uniform
+
+Total demand differs substantially across sites, meaning a single portfolio-wide average would hide meaningful operating differences.
+
+<p align="center">
+  <img src="assets/eda/03_total_consumption_by_site.png" width="760" alt="Total cement consumption by site">
+</p>
+
+Possible drivers include project scale, activity intensity, pour schedules and site-specific operating conditions.
+
+---
+
+## 3. Cement Types Are Relatively Balanced
+
+Demand across the three cement types is broadly similar, although **CEM II contributes slightly more than 34% of total consumption**, making it the largest individual share.
+
+<p align="center">
+  <img src="assets/eda/04_consumption_by_cement_type.png" width="720" alt="Total cement consumption by cement type">
+</p>
+
+This suggests cement type should be preserved in the forecasting problem even though no single type overwhelmingly dominates the portfolio.
+
+---
+
+## 4. Broad Seasonality Is Weak — Granular Calendar Patterns Matter More
+
+Average monthly and weekday demand are relatively stable, but the **month × weekday heatmap** reveals patterns hidden by simple averages.
+
+<p align="center">
+  <img src="assets/eda/13_month_weekday_heatmap.png" width="760" alt="Average cement demand by month and weekday">
+</p>
+
+Notable combinations include:
+
+- **Monday → August**
+- **Tuesday → December**
+- **Wednesday → January**
+- **Thursday → July**
+- **Sunday → November**
+
+Friday and Saturday do not show similarly clear recurring high-demand peaks.
+
+### Business meaning
+
+A forecasting model should preserve calendar interactions rather than relying only on a simple month or weekday average.
+
+---
+
+## 5. Forecasting Difficulty Varies by Site
+
+Demand volatility differs meaningfully across MIG's sites.
+
+<p align="center">
+  <img src="assets/eda/08_site_demand_volatility.png" width="760" alt="Cement demand volatility by site">
+</p>
+
+**Sites 28, 26, 14, 24 and 06** appear among the most volatile based on relative variation in demand.
+
+This matters because forecast difficulty is unlikely to be uniform across the portfolio. More volatile sites may require closer monitoring, wider safety buffers or stronger operational review.
+
+---
+
+## 6. Planned Pours Are a Strong Forecasting Signal
+
+Planned pour quantity has a clear positive relationship with actual cement consumption.
+
+**Correlation ≈ 0.781**
+
+<p align="center">
+  <img src="assets/eda/09_planned_pours_vs_actual.png" width="760" alt="Planned pours versus actual cement consumption">
+</p>
+
+This makes planned construction activity a valuable forecasting input.
+
+> The relationship is associative, not proof of causality.
+
+---
+
+## 7. Rainfall Matters More Than Temperature Linearly
+
+Historical rainfall shows a strong negative relationship with cement consumption: higher rainfall is generally associated with lower cement usage.
+
+<table>
+<tr>
+<td width="50%">
+<img src="assets/eda/10_rainfall_vs_consumption.png" width="100%" alt="Rainfall versus cement consumption">
+</td>
+<td width="50%">
+<img src="assets/eda/11_temperature_vs_consumption.png" width="100%" alt="Temperature versus cement consumption">
+</td>
+</tr>
+</table>
+
+Temperature shows a much weaker **linear** relationship with consumption.
+
+That does not mean temperature is irrelevant. It may still interact with season, rainfall, site conditions or other features in non-linear ways.
+
+---
+
+## EDA → Modelling Decisions
+
+The exploratory analysis directly informs the feature strategy.
+
+| EDA evidence | Modelling implication |
+|---|---|
+| Site demand differs | Preserve **site-level effects** |
+| Cement types are distinct | Preserve **cement type** |
+| Month / weekday averages hide interactions | Include **calendar features and interactions** |
+| Demand is volatile | Add **historical lag and rolling-demand features** |
+| Planned pours correlate strongly with consumption | Use **planned pour signals** |
+| Rainfall is operationally informative | Retain **weather information where forecast-time availability is justified** |
+| Volatility differs across sites | Evaluate performance beyond a single portfolio average |
+
+---
+
+## Feature Engineering Strategy
+
+The forecasting layer is designed around features that capture **recency, seasonality, operating plan and site behaviour**.
+
+### Calendar features
+- month
+- weekday
+- week / seasonal position
+- month × weekday interactions where useful
+
+### Historical demand features
+- lagged cement consumption
+- rolling averages
+- rolling variability
+- recent demand momentum
+
+### Operational planning features
+- planned pour quantities
+- planned-vs-historical demand context
+- site and cement-type information
+
+### Weather features
+- rainfall
+- temperature
+- weather interactions where justified
+
+### Inventory context
+Inventory variables are used carefully so that same-period target leakage is avoided.
+
+---
+
+## Forecast Model Development
+
+The project specification compares statistical and machine-learning forecasting approaches, including:
+
+- **SARIMAX / time-series baselines with external regressors**
+- **Random Forest / machine-learning forecasting with operational predictors**
+
+Model selection is based on **time-aware hold-out performance** rather than random train/test splitting.
+
+The project uses **MAPE as a core business-facing accuracy measure**, with supporting error diagnostics used during comparison.
+
+Model comparison outputs are persisted for downstream reporting in:
+
+```text
+outputs/model_comparison.csv
+```
+
+---
+
+# Inventory & Reorder Intelligence
+
+Forecasting answers:
+
+> **How much cement is likely to be consumed?**
+
+Inventory intelligence answers:
+
+> **Will the site have enough cement when that demand arrives?**
+
+A simplified projection is:
+
+```text
+Projected Inventory
+= Current / Opening Inventory
++ Expected Deliveries
+- Forecast Demand
+```
+
+The projected stock position is then assessed against:
+
+- upcoming forecast demand
+- silo capacity
+- delivery assumptions
+- operational safety requirements
+- stockout / overstock thresholds
+
+The decision engine produces outputs such as:
+
+- projected inventory
+- silo utilisation
+- stockout risk
+- overstock exposure
+- reorder requirement
+- recommended replenishment action
+
+A key downstream output is stored in:
+
+```text
+outputs/risk_reorder_recommendations.csv
+```
+
+---
+
+# Plotly Dash Control Tower
+
+The dashboard turns model outputs into an operational product.
+
+### Decision modules
+
+**Executive Overview**  
+Portfolio-level KPIs, model summary, operational exposure and management signals.
+
+**Forecast Intelligence**  
+Site- and cement-level demand outlook across the planning horizon.
+
+**Inventory Projection**  
+Expected stock movement and silo position after forecast demand and deliveries.
+
+**Risk & Reorder**  
+Prioritised stockout / overstock exposure and replenishment recommendations.
+
+**Model Performance**  
+Transparent comparison of forecast performance and model quality.
+
+**Scenario Simulator**  
+Interactive what-if analysis for changing demand or delivery assumptions before operational decisions are made.
+
+> The simulator is intentionally a **decision layer**, not a decorative page. Its value is showing how changed assumptions alter inventory, risk and reorder implications.
+
+---
+
+## Scenario Simulator
+
+The simulator allows an operations user to ask questions such as:
+
+- What happens if demand rises above the base forecast?
+- What happens if a delivery is reduced or delayed?
+- Which sites move into a higher stockout-risk state?
+- How does the recommended reorder quantity change?
+- Does additional inventory create silo-capacity pressure?
+
+This makes the application useful for **planning under uncertainty**, rather than only displaying one fixed forecast.
+
+---
+
+# Repository Workflow
+
+```mermaid
+flowchart TD
+    A[01 · Data Ingestion & Understanding] --> B[02 · Data Cleaning & Validation]
+    B --> C[03 · Exploratory Data Analysis]
+    C --> D[04 · Feature Engineering]
+    D --> E[05 · Forecast Model Development]
+    E --> F[06 · Inventory Projection]
+    F --> G[07 · Risk & Reorder Engine]
+    G --> H[08 · Plotly Dash Control Tower]
+    H --> I[09 · Scenario Simulation & Validation]
+```
+
+### Important generated outputs
+
+```text
+outputs/
+├── model_comparison.csv
+└── risk_reorder_recommendations.csv
+```
+
+The wider project also includes reproducible notebooks / scripts, dashboard pages and supporting analytical outputs.
+
+---
+
+# Technology Stack
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| Data storage | **SQLite** | Operational source data |
+| Data processing | **Python, pandas, NumPy** | Cleaning, transformation and features |
+| Forecasting / ML | **scikit-learn, statsmodels** | Forecast development and comparison |
+| Visualisation | **Plotly** | Interactive analytical charts |
+| Application | **Dash** | Multi-page decision-support Control Tower |
+| Version control | **Git / GitHub** | Reproducibility and project packaging |
+
+---
+
+# Key Business Findings
+
+The EDA supports five important conclusions:
+
+1. **MIG does not have one universal cement-demand pattern.**  
+   Site behaviour and volatility differ enough that local context matters.
+
+2. **Construction plans contain strong predictive information.**  
+   Planned pours and actual consumption have a correlation of approximately **0.781**.
+
+3. **Weather is operationally relevant.**  
+   Rainfall is associated with lower cement consumption, while temperature shows limited linear influence in the current analysis.
+
+4. **Simple averages hide useful seasonality.**  
+   Month × weekday combinations expose specific higher-demand operating windows.
+
+5. **Forecasting must connect to inventory decisions.**  
+   Predicting demand has limited business value unless the output is translated into stockout risk, silo utilisation and reorder action.
+
+---
+
+# Business Value
+
+The completed system is designed to help MIG move from:
+
+| From | To |
+|---|---|
+| Reactive cement ordering | **Proactive replenishment** |
+| Manual judgement alone | **Forecast-supported decisions** |
+| Portfolio averages | **Site-level intelligence** |
+| Static inventory reporting | **Forward inventory projection** |
+| Late stockout discovery | **Early risk detection** |
+| Fixed assumptions | **Scenario-based planning** |
+
+The intended outcome is a more resilient cement-planning process that protects scheduled pours while reducing unnecessary inventory and waste.
+
+---
+
+# Limitations & Responsible Interpretation
+
+- Correlation does not establish causation.
+- Historical patterns may change as project mix and site activity change.
+- Weather variables are only useful operationally when reliable forecast-time weather information is available.
+- Forecast accuracy can vary by site because demand volatility differs materially across the portfolio.
+- Inventory recommendations depend on the quality of delivery assumptions and operational thresholds.
+- Business targets such as MAPE ≤ 15% or ≥ 98% pour readiness should only be presented as achieved when validated by final evaluation results.
+
+---
+
+# Next Development Priorities
+
+- production deployment of the Dash application
+- systematic forecast monitoring by site and cement type
+- model-retraining triggers when performance deteriorates
+- stronger delivery-lead-time modelling
+- scenario comparison across multiple sites
+- procurement-level rollups for coordinated ordering
+- further sensitivity testing of safety-stock and reorder rules
+
+---
+
+<div align="center">
+
+### **Forecast Earlier · Reorder Smarter · Keep Every Pour Ready**
+
+**MIG Cement Intelligence & Inventory Control Tower**
+
+</div>

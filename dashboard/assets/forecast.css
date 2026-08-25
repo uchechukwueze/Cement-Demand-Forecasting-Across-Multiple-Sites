@@ -1,0 +1,142 @@
+/* Demand Forecast page */
+
+.forecast-header {
+    position: relative;
+    z-index: 20;
+    overflow: visible;
+    padding: 32px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(16, 36, 55, 0.96),
+            rgba(10, 25, 39, 0.94)
+        );
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.22);
+}
+
+.forecast-header::after {
+    position: absolute;
+    top: -140px;
+    right: -90px;
+    z-index: 0;
+    width: 290px;
+    height: 290px;
+    content: "";
+    pointer-events: none;
+    border-radius: 50%;
+    background: rgba(51, 209, 180, 0.11);
+}
+
+.forecast-header > * {
+    position: relative;
+    z-index: 1;
+}
+
+.forecast-header h2 {
+    margin-bottom: 12px;
+    font-size: 34px;
+}
+
+/* Site selector */
+
+.site-selector-card {
+    position: relative;
+    z-index: 50;
+    min-width: 250px;
+    padding: 16px;
+    border: 1px solid rgba(51, 209, 180, 0.20);
+    border-radius: 15px;
+    background: rgba(51, 209, 180, 0.06);
+}
+
+.selector-label {
+    margin: 0 0 8px !important;
+    color: var(--muted) !important;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.site-dropdown {
+    position: relative;
+    z-index: 100;
+}
+
+.site-dropdown .Select-control {
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+}
+
+.site-dropdown .Select-value-label,
+.site-dropdown .Select-placeholder {
+    color: var(--text) !important;
+}
+
+.site-dropdown .Select-menu-outer {
+    z-index: 9999 !important;
+    color: var(--text);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.site-dropdown .VirtualizedSelectOption {
+    color: var(--text);
+    background: var(--surface);
+}
+
+.site-dropdown .VirtualizedSelectFocusedOption {
+    color: white;
+    background: var(--surface-light);
+}
+
+/* Forecast KPI cards */
+
+.kpi-grid.forecast-kpi-grid {
+    position: relative;
+    z-index: 1;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+}
+
+/* Forecast chart */
+
+.forecast-chart-panel {
+    margin-top: 22px;
+    padding-bottom: 18px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 1100px) {
+    .kpi-grid.forecast-kpi-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .forecast-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .site-selector-card {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .kpi-grid.forecast-kpi-grid {
+        grid-template-columns: 1fr;
+    }
+}

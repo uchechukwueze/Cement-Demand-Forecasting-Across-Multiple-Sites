@@ -1,0 +1,5 @@
+Model,MAPE (%),RMSE (tonnes)
+SARIMAX,23.79,9.16
+Random Forest,19.76,7.65
+XGBoost,22.06,8.12
+Prophet,23.55,9.32
