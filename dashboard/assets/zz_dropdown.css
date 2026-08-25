@@ -1,0 +1,180 @@
+/* ==================================================
+   GLOBAL MIG DROPDOWN THEME
+   Applies to every dropdown using:
+   className="site-dropdown"
+   ================================================== */
+
+
+/* Dropdown root */
+
+.site-dropdown {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    color: #f4f7fb !important;
+}
+
+
+/* Control background — supports older Dash versions */
+
+.site-dropdown .Select-control {
+    min-height: 42px;
+    color: #f4f7fb !important;
+    border: 1px solid #28445d !important;
+    border-radius: 10px !important;
+    background-color: #0d1c2b !important;
+    box-shadow: none !important;
+}
+
+
+/* Control background — supports newer Dash versions */
+
+.site-dropdown [class*="-control"] {
+    min-height: 42px !important;
+    color: #f4f7fb !important;
+    border-color: #28445d !important;
+    border-radius: 10px !important;
+    background-color: #0d1c2b !important;
+    box-shadow: none !important;
+}
+
+
+/* Hover and focus states */
+
+.site-dropdown .Select-control:hover,
+.site-dropdown [class*="-control"]:hover {
+    border-color: rgba(
+        51,
+        209,
+        180,
+        0.65
+    ) !important;
+}
+
+.site-dropdown.is-focused .Select-control,
+.site-dropdown [class*="-control"]:focus-within {
+    border-color: #33d1b4 !important;
+    box-shadow:
+        0 0 0 2px
+        rgba(51, 209, 180, 0.12)
+        !important;
+}
+
+
+/* Selected value */
+
+.site-dropdown .Select-value-label,
+.site-dropdown [class*="-singleValue"] {
+    color: #f4f7fb !important;
+    font-weight: 500 !important;
+}
+
+
+/* Placeholder */
+
+.site-dropdown .Select-placeholder,
+.site-dropdown [class*="-placeholder"] {
+    color: #91a2b6 !important;
+    opacity: 1 !important;
+}
+
+
+/* Search input */
+
+.site-dropdown .Select-input > input,
+.site-dropdown input {
+    color: #f4f7fb !important;
+    caret-color: #33d1b4 !important;
+}
+
+
+/* Dropdown menu */
+
+.site-dropdown .Select-menu-outer,
+.site-dropdown [class*="-menu"] {
+    z-index: 99999 !important;
+    overflow: hidden !important;
+    color: #f4f7fb !important;
+    border: 1px solid #28445d !important;
+    border-radius: 10px !important;
+    background-color: #0d1c2b !important;
+    box-shadow:
+        0 18px 40px
+        rgba(0, 0, 0, 0.38)
+        !important;
+}
+
+
+/* Menu list */
+
+.site-dropdown .Select-menu,
+.site-dropdown [class*="-menuList"] {
+    color: #f4f7fb !important;
+    background-color: #0d1c2b !important;
+}
+
+
+/* Dropdown options */
+
+.site-dropdown .VirtualizedSelectOption,
+.site-dropdown [role="option"],
+.site-dropdown [class*="-option"] {
+    color: #dce6f2 !important;
+    background-color: #0d1c2b !important;
+}
+
+
+/* Focused and selected options */
+
+.site-dropdown .VirtualizedSelectFocusedOption,
+.site-dropdown [role="option"]:hover,
+.site-dropdown [role="option"][aria-selected="true"],
+.site-dropdown [class*="-option"]:hover {
+    color: #ffffff !important;
+    background-color: #15384a !important;
+}
+
+
+/* Dropdown arrow */
+
+.site-dropdown .Select-arrow {
+    border-top-color: #91a2b6 !important;
+}
+
+.site-dropdown.is-open .Select-arrow {
+    border-bottom-color: #33d1b4 !important;
+}
+
+
+/* Newer dropdown indicator */
+
+.site-dropdown [class*="-indicatorContainer"] {
+    color: #91a2b6 !important;
+}
+
+.site-dropdown [class*="-indicatorContainer"]:hover {
+    color: #33d1b4 !important;
+}
+
+.site-dropdown [class*="-indicatorSeparator"] {
+    background-color: #28445d !important;
+}
+
+
+/* Clear button */
+
+.site-dropdown .Select-clear-zone {
+    color: #91a2b6 !important;
+}
+
+
+/* Keep selector cards and menus above charts */
+
+.site-selector-card {
+    position: relative;
+    z-index: 500;
+}
+
+.forecast-header {
+    overflow: visible !important;
+}
