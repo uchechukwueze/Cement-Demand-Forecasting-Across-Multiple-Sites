@@ -8,6 +8,8 @@ app = Dash(
     use_pages=True
 )
 
+server = app.server
+
 app.title = "MIG Cement Control Tower"
 
 
