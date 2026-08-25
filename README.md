@@ -18,7 +18,7 @@ A forecasting and inventory decision-support system for multi-site cement operat
 
 **32,880 operational records · 30 sites · 3 cement types · 8-week planning horizon**
 
-       https://cement-demand-forecasting-across.onrender.com/ 
+      DashBoard link: https://cement-demand-forecasting-across.onrender.com/ 
 
 </div>
 
